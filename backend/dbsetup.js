@@ -161,8 +161,8 @@ CREATE TABLE userRelations(
     otherUserID INT NOT NULL,
     friendshipState VARCHAR(255) NULL,
     dateOfCreation TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (initiateUserID) references users(userID),
-    FOREIGN KEY (otherUserID) references users(userID),
+    FOREIGN KEY (initiateUserID) references users(userID) ON DELETE CASCADE,
+    FOREIGN KEY (otherUserID) references users(userID) ON DELETE CASCADE,
     PRIMARY KEY (initiateUserID, otherUserID)
     );
 
@@ -177,7 +177,7 @@ CREATE TABLE dialogueState(
     PRIMARY KEY (npcId, userId), 
     FOREIGN KEY (rewardItemId) REFERENCES items (itemId), 
     FOREIGN KEY (npcId) REFERENCES npc (npcId), 
-    FOREIGN KEY (userId) REFERENCES users (userId)
+    FOREIGN KEY (userId) REFERENCES users (userId) ON DELETE CASCADE
 );
 `
 

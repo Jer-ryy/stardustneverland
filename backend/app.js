@@ -9,7 +9,7 @@ const pool = require('./db');
 // INIT
 /// ///////////////////////////////////////////////////
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 /// ///////////////////////////////////////////////////
 // DISPLAY SERVER RUNNING

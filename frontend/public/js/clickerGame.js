@@ -129,24 +129,36 @@ window.onload = () => {
                         // Forward movement
                         if (keyPressed.d) {
                             playerContainer.x += 6;
-                            player.scale.x = 1
-                            instructions.anchor.y = 1
-                            drag.scale.x = 0.1
-                            drag.position.set(70, -25);
-                            item.scale.set(0.07, 0.07)
-                            item.position.set(61, -12)
-                            item.rotation = -0.25
+                            player.scale.x = 1;
+                            instructions.anchor.y = 1;
+                        
+                            if (drag) {
+                                drag.scale.x = 0.1;
+                                drag.position.set(70, -25);
+                            }
+                        
+                            if (item) {
+                                item.scale.set(0.07, 0.07);
+                                item.position.set(61, -12);
+                                item.rotation = -0.25;
+                            }
                         }
                         // Backward movement
                         if (keyPressed.a) {
                             playerContainer.x -= 6;
-                            player.scale.x = -1
-                            instructions.anchor.y = -1
-                            drag.scale.x = -0.1
-                            drag.position.set(-70, -25)
-                            item.scale.x = -0.07
-                            item.position.set(-61, -12)
-                            item.rotation = 0.25
+                            player.scale.x = -1;
+                            instructions.anchor.y = -1;
+                        
+                            if (drag) {
+                                drag.scale.x = -0.1;
+                                drag.position.set(-70, -25);
+                            }
+                        
+                            if (item) {
+                                item.scale.x = -0.07;
+                                item.position.set(-61, -12);
+                                item.rotation = 0.25;
+                            }
                         }
                     }
 
