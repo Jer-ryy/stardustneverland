@@ -3,6 +3,7 @@ services:
     name: stardustneverland
     runtime: node
     plan: free
+    autoDeployTrigger: off # deploys are triggered by the GitHub Actions workflow
     buildCommand: npm install
     startCommand: npm start
     healthCheckPath: /api

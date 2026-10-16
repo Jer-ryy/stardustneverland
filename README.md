@@ -111,7 +111,9 @@ Open **http://localhost:4000** — the backend serves the frontend and the API (
 
 ## Deployment
 
-The app is hosted on **Render** (free web service) using the [`render.yaml`](render.yaml) blueprint, with the database on **Aiven** PostgreSQL. In Render, create a **Blueprint** from this repo and set `DB_URL` when prompted (`JWTKey` is generated automatically). Render redeploys on every push to `main`.
+The app is hosted on **Render** (free web service) using the [`render.yaml`](render.yaml) blueprint, with the database on **Aiven** PostgreSQL. In Render, create a **Blueprint** from this repo and set `DB_URL` when prompted (`JWTKey` is generated automatically).
+
+Every push to `main` runs the GitHub Actions workflow in `.github/workflows/render-deploy.yml`, which installs dependencies, checks the backend for syntax errors, and then triggers a Render deploy through the `RENDER_DEPLOY_HOOK_URL` repository secret.
 
 ---
 
