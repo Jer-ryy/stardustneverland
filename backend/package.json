@@ -6,22 +6,10 @@
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon /app.js",
-    "seeddb": "node ./seedData/image_seeddata.js && node ./seedData/floors_seeddata.js",
-    "seedImages": "node ./seedData/image_seeddata.js",
-    "seedFloors": "node ./seedData/floors_seeddata.js",
-    "seedItems": "node ./seedData/items_seeddata.js",
-    "seedUsers": "node ./seedData/user_seeddata.js",
-    "seedNPC": "node ./seedData/npc_seeddata.js",
-    "seedInventory": "node ./seedData/inventory_seeddata.js",
-    "seedGame": "node ./seedData/game_seeddata.js",
-    "seedDialogue": "node ./seedData/dialogue_seeddata.js",
-    "seedCurrency": "node ./seedData/currency_seeddata.js",
-    "seedPost": "node ./seedData/post_seeddata.js",
-    "seedBoss": "node ./seedData/boss_seeddata.js",
-    "seedGameDuration": "node ./seedData/game_play_duration_seeddata.js",
-    "seedSpin": "node ./seedData/spin_seeddata.js",
     "setupdb": "node ./dbsetup.js",
-    "cleardb": "node ./dbreset.js"
+    "seed": "node ./seedData/seed.js",
+    "cleardb": "node ./dbreset.js",
+    "resetdb": "npm run cleardb && npm run setupdb && npm run seed"
   },
   "repository": {
     "type": "git",

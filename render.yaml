@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: stardustneverland
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: DB_URL
+        sync: false
+      - key: JWTKey
+        generateValue: true
+      - key: DB_CONNECTION_LIMIT
+        value: 5

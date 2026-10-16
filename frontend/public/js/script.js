@@ -1,9 +1,6 @@
-function isLocalhost(url) 
-{
-    return url.includes('localhost') || url.includes('127.0.0.1');
-}
-API_URL = (isLocalhost(window.location.hostname) != true ? `https://${window.location.hostname}/api` : 'http://localhost:3000/api');
+// The backend serves the frontend, so the API is always on the same origin
+API_URL = `${window.location.origin}/api`;
 
-IMAGE_URL = (isLocalhost(window.location.hostname) != true ? `https://${window.location.hostname}` : 'http://localhost:3000');
+IMAGE_URL = window.location.origin;
 
 
