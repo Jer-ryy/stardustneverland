@@ -1,10 +1,10 @@
-# ✨ Stardust Neverland
+# Stardust Neverland
 
 A full-stack web game built as a school project (ADES, AY22/23 Sem 2). Players climb through floors, talk to NPCs, play mini-games to earn currency, spend it in the store, equip items, and fight bosses — while admins manage the whole game world from a dashboard with live analytics.
 
 ---
 
-## 🎮 Features
+## Features
 
 ### Player side
 - **Accounts** – register, log in (JWT auth), view profile and standings
@@ -22,7 +22,7 @@ A full-stack web game built as a school project (ADES, AY22/23 Sem 2). Players c
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Tech |
 |---|---|
@@ -36,7 +36,7 @@ A full-stack web game built as a school project (ADES, AY22/23 Sem 2). Players c
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 stardustneverland/
@@ -63,7 +63,7 @@ stardustneverland/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js 18+
@@ -120,13 +120,13 @@ Open **http://localhost:4000** — the backend serves the frontend and the API (
 
 ---
 
-## ☁️ Deployment
+## Deployment
 
 Every push to `main` triggers the GitHub Actions workflow in `.github/workflows/main_stardustneverland.yml`, which builds the app and deploys it to the **`stardustneverland`** Azure Web App. Set the environment variables above in the Azure App Service configuration.
 
 ---
 
-## 👥 Team
+## Team
 
 | Student ID | Name |
 |---|---|
