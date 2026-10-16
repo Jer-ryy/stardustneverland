@@ -28,10 +28,10 @@ A full-stack web game built as a school project (ADES, AY22/23 Sem 2). Players c
 |---|---|
 | Frontend | HTML, CSS, vanilla JS, React 18 (via CDN pages), D3.js |
 | Backend | Node.js, Express |
-| Database | PostgreSQL (`pg`, `pg-format`) |
+| Database | PostgreSQL on Aiven (`pg`, `pg-format`) |
 | Auth | JSON Web Tokens, bcrypt |
 | Uploads | Multer (+ Cloudinary config) |
-| Deployment | Azure Web App via GitHub Actions |
+| Deployment | Render (`render.yaml` blueprint) |
 | Linting | ESLint (Airbnb + Prettier) |
 
 ---
@@ -49,7 +49,7 @@ stardustneverland/
 │   ├── routes/             # API routes (mounted under /api)
 │   ├── controller/         # Request handlers
 │   ├── model/              # Database queries
-│   ├── seedData/           # CSV seed data + seed scripts
+│   ├── seedData/           # CSV seed data + seed.js
 │   └── images/             # Static game images
 ├── frontend/
 │   └── public/
@@ -57,8 +57,8 @@ stardustneverland/
 │       ├── user/           # Player pages
 │       ├── admin/          # Admin pages
 │       ├── react/          # React components
-│       ├── js/  css/       # Page scripts & styles
-└── .github/workflows/      # Azure deployment pipeline
+│       └── js/  css/       # Page scripts & styles
+└── render.yaml             # Render deployment config
 ```
 
 ---
@@ -66,7 +66,7 @@ stardustneverland/
 ## Getting Started
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 20+
 - A PostgreSQL database
 
 ### 1. Clone & install
@@ -80,6 +80,7 @@ npm install          # also installs backend dependencies
 Create a `.env` file inside `backend/`:
 
 ```env
+# Aiven: paste the Service URI, ending in ?sslmode=no-verify
 DB_URL=postgres://user:password@host:5432/dbname
 DB_CONNECTION_LIMIT=5
 JWTKey=your_jwt_secret
@@ -96,21 +97,9 @@ CLOUDINARY_API_SECRET=
 ```bash
 cd backend
 npm run setupdb      # create tables
-npm run seedImages
-npm run seedFloors
-npm run seedItems
-npm run seedUsers
-npm run seedNPC
-npm run seedInventory
-npm run seedGame
-npm run seedDialogue
-npm run seedCurrency
-npm run seedPost
-npm run seedBoss
-npm run seedGameDuration
-npm run seedSpin
+npm run seed         # insert all CSV seed data
 ```
-Use `npm run cleardb` to reset.
+Use `npm run resetdb` to drop, recreate and reseed everything.
 
 ### 4. Run
 ```bash
@@ -122,7 +111,7 @@ Open **http://localhost:4000** — the backend serves the frontend and the API (
 
 ## Deployment
 
-Every push to `main` triggers the GitHub Actions workflow in `.github/workflows/main_stardustneverland.yml`, which builds the app and deploys it to the **`stardustneverland`** Azure Web App. Set the environment variables above in the Azure App Service configuration.
+The app is hosted on **Render** (free web service) using the [`render.yaml`](render.yaml) blueprint, with the database on **Aiven** PostgreSQL. In Render, create a **Blueprint** from this repo and set `DB_URL` when prompted (`JWTKey` is generated automatically). Render redeploys on every push to `main`.
 
 ---
 
